@@ -8,16 +8,17 @@ module.exports = {
   };
 
   function get() {
-      return db('projects');
+      return db('projects as p')
+      .select('p.project_name', 'p.project_description', 'p.project_completed');
   }
 
-  function getById(id) {
+  function getById(project_id) {
       return db('projects')
-        .where({id})
+        .where({project_id})
         .first();
   }
 
   async function create(pro) {
-      const [id] = await db('projects').insert(pro)
-      return getById(id)
+      const [project_id] = await db('projects').insert(pro)
+      return getById(project_id)
   }
