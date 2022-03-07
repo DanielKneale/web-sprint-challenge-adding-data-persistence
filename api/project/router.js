@@ -11,6 +11,7 @@ router.get('/' , async (req, res, next) =>{
       }
 })
 
+// eslint-disable-next-line no-unused-vars
 router.post('/',/*checkpayload*/ async (req,res,next) => {
     try{
         const newProject = await Project.create(req.body)

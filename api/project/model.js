@@ -8,8 +8,7 @@ module.exports = {
   };
 
   function get() {
-      return db('projects as p')
-      .select('p.project_name', 'p.project_description', 'p.project_completed');
+      return db('projects')
   }
 
   function getById(project_id) {
